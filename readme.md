@@ -6,6 +6,7 @@
 如果要在优先级FOR[RealismOverhaulTankTypes]前修改，就用FOR[RealismOverhaulAAATankTypes]之后就用AFTER[RealismOverhaulZZZTankTypes]。
 如果要在FOR[RealismOverhaul]优先级后用FOR修改，就用FOR[RealismOverhaulXYZ]。
 如果没有优先级，就也不用优先级或者用FOR[XYZLocalization]（哪个好一些？）
+如果在AFTER[zPFFE]之后，就写FOR[zPFFEXYZ]
 
 ## 语法
 
