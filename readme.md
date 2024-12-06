@@ -1,16 +1,18 @@
-刚刚接触KSP的Patch翻译，有很多地方搞不明白，但为了以防忘记，还是记录一些用到的东西，来规范自己的翻译
+刚刚接触KSP的Patch翻译，有很多地方搞不明白，但为了以防忘记，还是记录一些用到的东西，来规范自己的翻译。
 
-在Localization下按照不同Mod的路径造一个同样的路径，如果原位置有一个xx.cfg文件 翻译时就在对应位置创建一个zh-cn-xx.cfg文件。
+在Localization下按照不同Mod的路径造一个同样的路径，如果原位置有一个xx.cfg文件 翻译时就在对应位置创建一个zh-cn-MM-xx.cfg文件。
 如果打算把某一个目录比如xx/下的所有文件翻译成一个patch，就起名成zh-cn.cfg。（暂定）
 
-如果要在优先级FOR[RealismOverhaulTankTypes]前修改，就用FOR[RealismOverhaulAAATankTypes]之后就用AFTER[RealismOverhaulZZZTankTypes]。
+有些机翻保留了原文，为谨慎起见没有用变量，而是直接把英文贴在了中文后。
+
+如果要在优先级FOR[RealismOverhaulTankTypes]前修改，就用FOR[RealismOverhaulAAATankTypes]之后就用AFTER/FOR[RealismOverhaulZZZTankTypes]。
 如果要在FOR[RealismOverhaul]优先级后用FOR修改，就用FOR[RealismOverhaulXYZ]。
 如果没有优先级，就也不用优先级或者用FOR[XYZLocalization]（哪个好一些？）
 如果在AFTER[zPFFE]之后，就写FOR[zPFFEXYZ]
 
 ## 语法
 
-[教程参考](hhttps://www.bilibili.com/opus/795218190163509272)
+[教程参考](https://www.bilibili.com/opus/795218190163509272)
 
 ```
 [操作符][[ConfigNode][ConfigNode 的 name]][:限定操作符]
@@ -100,8 +102,8 @@ TESTNODE
 
 Patch应用顺序
 
-- 空操作符先运行
-- 如果modname不存在 删除NEEDS, BEFORE, AFTER
+- 空操作符先运行（插入）
+- 如果modname不存在 **删除NEEDS, BEFORE, AFTER**
 - 所有:FIRST
 - 没有指明优先级
 - 按modname的Unicode序运行
