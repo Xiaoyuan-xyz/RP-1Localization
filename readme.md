@@ -17,9 +17,9 @@
 - kick motor 入轨引擎 kick stage kick级 入轨级 （K君推荐：踢进器）
 - pressure-fed 挤压式 pump-fed 泵压式 （K君推荐：高压送油，泵油式）
 
-- tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料箱，然后Service Module那个单独翻译成储罐）
+- tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料罐，然后Service Module那个单独翻译成储罐）
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
-- procedural
+- procedural （K君建议：自定义）
 
 - mount plate
 
