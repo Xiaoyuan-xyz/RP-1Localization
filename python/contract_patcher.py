@@ -6,6 +6,7 @@ def cfg_to_dict(cfg_text):
     lines = cfg_text.splitlines()
     lines = [line.strip() for line in lines]
     lines = [line.split("//")[0] for line in lines]
+    lines = [line.strip() for line in lines]
 
     depth = 0
     ret = {}
@@ -68,7 +69,12 @@ def modify_dict(d, modifier, name):
                     ret_dict_name = ret_dict["name"]
                     ret_dict.pop("name")
                     # 新字典赋值
-                    modified_dict["@" + key + f"[{ret_dict_name}]" + ("" if key == "CONTRACT_TYPE" else "")] = ret_dict
+                    modified_dict[
+                        "@"
+                        + key
+                        + f"[{ret_dict_name}]"
+                        + ("" if key == "CONTRACT_TYPE" else "")
+                    ] = ret_dict
             else:
                 new_key, new_value = modifier(key, value, name + "_" + d_name)
                 if new_key is not None:
@@ -122,9 +128,9 @@ if __name__ == "__main__":
 
     folder_path = "./RP-1/Contracts/"
 
-    all_patch = {}
-    all_loc = {}
-    all_loc_en = {}
+    all_patch = []
+    all_loc = []
+    all_loc_en = []
 
     for root, dirs, files in os.walk(folder_path):
         for file in files:
@@ -142,12 +148,12 @@ if __name__ == "__main__":
                 sort_key = (
                     int(dic["CONTRACT_TYPE"][0]["sortKey"])
                     if "sortKey" in dic["CONTRACT_TYPE"][0]
-                    else (100000 + len(all_patch))
+                    else (100000)
                 )
                 patch = create_patch(dic)
-                all_patch[sort_key] = patch
-                all_loc[sort_key] = loc_dic
-                all_loc_en[sort_key] = loc_dic_en
+                all_patch.append((sort_key, patch))
+                all_loc.append((sort_key, loc_dic))
+                all_loc_en.append((sort_key, loc_dic_en))
 
     def merge_dic(all):
         merged_dict = {}
@@ -155,10 +161,10 @@ if __name__ == "__main__":
             merged_dict.update(d)
         return merged_dict
 
-    # 全体patch
-    all_patch = [all_patch[key] for key in sorted(all_patch.keys())]
-    all_loc = [all_loc[key] for key in sorted(all_loc.keys())]
-    all_loc_en = [all_loc_en[key] for key in sorted(all_loc_en.keys())]
+    # 全体patch 按sort排序
+    all_patch = [t[1] for t in sorted(all_patch, key=lambda x: x[0])]
+    all_loc = [t[1] for t in sorted(all_loc, key=lambda x: x[0])]
+    all_loc_en = [t[1] for t in sorted(all_loc_en, key=lambda x: x[0])]
 
     # 合并loc
     all_loc = merge_dic(all_loc)
