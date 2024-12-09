@@ -102,7 +102,7 @@ def modify_dict_key(key: str, value: str, name: str):
         loc_dic_en[loc_name] = value
         return "@" + key, loc_name + " // " + value
     if key == "name":
-        return key, value
+        return key, value.replace(' ', '?') # name中不能有空格
     return None, None
 
 
@@ -175,11 +175,11 @@ if __name__ == "__main__":
     all_loc = dict_to_cfg({"Localization": {"zh-cn": all_loc}})
     all_loc_en = dict_to_cfg({"Localization": {"en-us": all_loc_en}})
 
-    with open("temp.cfg", "w", encoding="utf-8") as f:
+    with open("./XYZLocalization/Localization/RP-1/Contracts/zh-cn-MM.cfg", "w", encoding="utf-8") as f:
         f.write(all_patch)
-    with open("temp_loc.cfg", "w", encoding="utf-8") as f:
+    with open("./XYZLocalization/Localization/RP-1/Contracts/zh-cn.cfg", "w", encoding="utf-8") as f:
         f.write(all_loc)
-    with open("temp_loc_en.cfg", "w", encoding="utf-8") as f:
+    with open("./XYZLocalization/Localization/RP-1/Contracts/en-us.cfg", "w", encoding="utf-8") as f:
         f.write(all_loc_en)
 
     print("运行完成")
