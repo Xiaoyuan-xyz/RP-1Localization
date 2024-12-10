@@ -39,6 +39,7 @@ def write_loc(path, loc, lang):
 
 if __name__ == "__main__":
     # zh_loc = read_loc('./XYZLocalization/Localization/RP-1/Contracts/zh-cn.cfg')
+    # zh_loc = [[it[0], it[1], None] for it in zh_loc]
     # zh_loc = [[it[0], it[2] if it[1] is None else it[1], None] for it in zh_loc]
     # write_loc('./XYZLocalization/Localization/RP-1/Contracts/zh-cn-temp.cfg', zh_loc, "zh-cn")
 
