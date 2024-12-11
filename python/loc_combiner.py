@@ -43,10 +43,11 @@ if __name__ == "__main__":
     # zh_loc = [[it[0], it[2] if it[1] is None else it[1], None] for it in zh_loc]
     # write_loc('./XYZLocalization/Localization/RP-1/Contracts/zh-cn-temp.cfg', zh_loc, "zh-cn")
 
-    zh_loc = read_loc("./XYZLocalization/Localization/RP-1/Contracts/zh-cn-temp.cfg")
-    en_loc = read_loc("./XYZLocalization/Localization/RP-1/Contracts/en-us.cfg")
+    zh_loc = read_loc(r"./XYZLocalization\Localization\RealismOverhaul\Localization\zh-cn-Engines.cfg")
+    en_loc = read_loc(r"./RealismOverhaul\Localization\en-us-Engines.cfg")
     for i in range(len(zh_loc)):
-        zh_loc[i][2] = en_loc[i][1]
+        zh_loc[i][1] = en_loc[i][1]
+        zh_loc[i][2] = None
     write_loc(
-        "./XYZLocalization/Localization/RP-1/Contracts/zh-cn-temp2.cfg", zh_loc, "zh-cn"
+        r"./XYZLocalization\Localization\RealismOverhaul\Localization\zh-cn-Engines-temp2.cfg", zh_loc, "zh-cn"
     )
