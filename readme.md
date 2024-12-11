@@ -5,6 +5,10 @@
 
 有些机翻保留了原文，为谨慎起见没有用变量，而是直接把英文贴在了中文后。
 
+现在决定，更彻底的本地化，打patch 创建`zh-cn-MM.cfg`，将要翻译的值表示为`#key`，然后创建`zh-cn.cfg`和`en-us.cfg`。
+`#key`和中文翻译后用注释写出英文原文。
+
+
 如果要在优先级FOR[RealismOverhaulTankTypes]前修改，就用FOR[RealismOverhaulAAATankTypes]之后就用AFTER/FOR[RealismOverhaulZZZTankTypes]。
 如果要在FOR[RealismOverhaul]优先级后用FOR修改，就用FOR[RealismOverhaulXYZ]。
 如果没有优先级，就也不用优先级或者用FOR[XYZLocalization]（哪个好一些？）
@@ -14,14 +18,87 @@
 ## 名词暂定翻译表
 
 - Sustainer 主引擎 加速级 Booster 助推器 起飞级 （K君推荐：主引擎）
+- thruster 推进器
 - kick motor 入轨引擎 kick stage kick级 入轨级 （K君推荐：踢进器）
-- pressure-fed 挤压式 pump-fed 泵压式 （K君推荐：高压送油，泵油式）
+- pressure-fed 高压式 高压供料的 pump-fed 泵送式 泵送供料的
+- combustion tap-off cycle 抽气循环
+- hypergolic 自燃性 gas generator 燃气发生器
+- braking 制动
+- Hall Effect Thruster 霍尔效应推进器
+- Ullage 气隙 Ullage Motor 沉底发动机
+- sounding rocket 探空火箭
+- circularize 圆化
+- Apogee kick motor 远地点踢进器 kick motor （末级）助推器
+- launch vehicle 运载火箭
+- Turbofan Engine 涡轮风扇发动机（涡扇发动机） bypass ratio 涵道比
 
 - tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料罐，然后Service Module那个单独翻译成储罐）
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
 - procedural （K君建议：自定义）
 
 - mount plate
+
+## 航空航天常用知识
+
+### 火箭
+
+动量定理：$$Fdt=dp=d(mv)$$
+
+在某一瞬时，发动机以恒定速率喷出质量，获得推力：
+
+$$F=\dot mv_e$$
+
+外界气压影响排气速度，影响推力，因此火箭在海平面推力小，真空推力大。
+
+推重比：推力与所受重力之比：
+
+$$F/W=F/(mg)$$
+
+比冲：每单位质量推进剂产生的冲量
+
+$$I_{sp} = I/(m_fg)=\dfrac{F}{\dot mg}=\dfrac{v_e}{g}$$
+
+齐奥尔科夫斯基火箭方程：
+$$a=-\dfrac{\dot m}{m}v_e$$
+
+积分：
+
+$$\Delta v=-v_e\Delta\ln(m)=v_e\ln(\dfrac{m_0}{m_1})$$
+
+干质比：$$M_R=\dfrac{m_1}{m_0}$$
+
+### 轨道
+
+在低地球轨道（LEO）环绕的速度
+
+$$G\dfrac{M_⊕m}{R_⊕^2}=m\dfrac{v^2}{R_⊕}$$
+
+$$v=\sqrt{gR_⊕}=7.9\text{km/s}$$
+
+上升到LEO需要的重力势能：
+
+$$E_p=\int_0^h\dfrac{GM_⊕m}{(R_⊕+h)^2}dh=\dfrac{h}{R_⊕(h+R_⊕)}GM_⊕m\approx mgh$$
+
+假设这部分势能是动能换的，飞到200km所需要的delta_v：
+
+$$v=\sqrt{2gh}=2000\text{km/s}$$
+
+向东发射，可以白嫖地球自转速度，以赤道为例：
+
+$$v=R_⊕\omega=465\text{m/s}$$
+
+空气阻力：
+
+$$F_D=\dfrac12\rho v^2SC_D$$
+
+$\rho$为大气密度、$v$为火箭速度、$S$为面积、$C_D$为阻力系数、$q=1/2\rho v^2$称为动压，是单位体积空气的动能。动压先上升后下降，最大动压称为Maxq。估算空气阻力消耗数百m/s的delta-v。
+
+于是向LEO发射需要9.3~10km/s的delta-v。
+
+### RO引擎
+
+
+
 
 ## 语法
 
