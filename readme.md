@@ -18,8 +18,19 @@
 ## 名词暂定翻译表
 
 - Sustainer 主引擎 加速级 Booster 助推器 起飞级 （K君推荐：主引擎）
+- thruster 推进器
 - kick motor 入轨引擎 kick stage kick级 入轨级 （K君推荐：踢进器）
-- pressure-fed 挤压式 pump-fed 泵压式 （K君推荐：高压送油，泵油式）
+- pressure-fed 高压式 高压供料的 pump-fed 泵送式 泵送供料的
+- combustion tap-off cycle 抽气循环
+- hypergolic 自燃性 gas generator 燃气发生器
+- braking 制动
+- Hall Effect Thruster 霍尔效应推进器
+- Ullage 气隙 Ullage Motor 沉底发动机
+- sounding rocket 探空火箭
+- circularize 圆化
+- Apogee kick motor 远地点踢进器 kick motor （末级）助推器
+- launch vehicle 运载火箭
+- Turbofan Engine 涡轮风扇发动机（涡扇发动机） bypass ratio 涵道比
 
 - tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料罐，然后Service Module那个单独翻译成储罐）
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
