@@ -95,7 +95,9 @@ def modify_dict_key(key: str, value: str, name: str):
         "genericDescription",
         "synopsis",
         "completedMessage",
-        "agent",
+        "displayName",
+        "requirementsPrettyText",
+        "objectivesPrettyText",
     ]:
         loc_name = "#" + name + "_" + key
         loc_dic[loc_name] = "暂未翻译 // " + value
@@ -106,7 +108,7 @@ def modify_dict_key(key: str, value: str, name: str):
     return None, None
 
 
-def create_patch(dic):
+def create_patch(dic, base_name="RP1CONTRACT_LOC"):
     # 创建字典
     global loc_dic, loc_dic_en
     loc_dic = {}
@@ -114,72 +116,10 @@ def create_patch(dic):
     dic["name"] = ""
 
     # 补丁字典
-    patch_dict = modify_dict(dic, modify_dict_key, "RP1CONTRACT_LOC")
+    patch_dict = modify_dict(dic, modify_dict_key, base_name)
     patch_dict.pop("name")
 
     # 补丁字典转回patch
     patch = dict_to_cfg(patch_dict)
 
-    return patch
-
-
-if __name__ == "__main__":
-    import os
-
-    folder_path = "./RP-1/Contracts/"
-
-    all_patch = []
-    all_loc = []
-    all_loc_en = []
-
-    for root, dirs, files in os.walk(folder_path):
-        for file in files:
-            if root == "./RP-1/Contracts/":
-                continue
-            if file.endswith(".cfg"):
-                file_path = os.path.join(root, file)
-
-                # 读取cfg文件内容
-                with open(file_path, "r", encoding="utf-8") as f:
-                    cfg_text = f.read()
-
-                dic = cfg_to_dict(cfg_text)
-                base_name = dic["CONTRACT_TYPE"][0]["name"]
-                sort_key = (
-                    int(dic["CONTRACT_TYPE"][0]["sortKey"])
-                    if "sortKey" in dic["CONTRACT_TYPE"][0]
-                    else (100000)
-                )
-                patch = create_patch(dic)
-                all_patch.append((sort_key, patch))
-                all_loc.append((sort_key, loc_dic))
-                all_loc_en.append((sort_key, loc_dic_en))
-
-    def merge_dic(all):
-        merged_dict = {}
-        for d in all:
-            merged_dict.update(d)
-        return merged_dict
-
-    # 全体patch 按sort排序
-    all_patch = [t[1] for t in sorted(all_patch, key=lambda x: x[0])]
-    all_loc = [t[1] for t in sorted(all_loc, key=lambda x: x[0])]
-    all_loc_en = [t[1] for t in sorted(all_loc_en, key=lambda x: x[0])]
-
-    # 合并loc
-    all_loc = merge_dic(all_loc)
-    all_loc_en = merge_dic(all_loc_en)
-
-    # 转回cfg
-    all_patch = "\n".join(all_patch)
-    all_loc = dict_to_cfg({"Localization": {"zh-cn": all_loc}})
-    all_loc_en = dict_to_cfg({"Localization": {"en-us": all_loc_en}})
-
-    with open("./XYZLocalization/Localization/RP-1/Contracts/zh-cn-MM.cfg", "w", encoding="utf-8") as f:
-        f.write(all_patch)
-    with open("./XYZLocalization/Localization/RP-1/Contracts/zh-cn.cfg", "w", encoding="utf-8") as f:
-        f.write(all_loc)
-    with open("./XYZLocalization/Localization/RP-1/Contracts/en-us.cfg", "w", encoding="utf-8") as f:
-        f.write(all_loc_en)
-
-    print("运行完成")
+    return patch, loc_dic, loc_dic_en

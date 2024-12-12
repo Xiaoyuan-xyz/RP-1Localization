@@ -38,6 +38,35 @@
 
 - mount plate
 
+## 接下来打算汉化的页面
+
+RP-1
+- Parts
+- Scenarios
+  - 1957Start.cfg
+- Science
+- SMCData
+  - CostModifiers.cfg
+- Strategies
+  - Leaders中全部
+  - Departments.cfg
+  - Milestones.cfg
+- Tooling
+  - SSPX.cfg
+- Tree
+  - AirlaunchTechlevels.cfg
+  - CockpitUpgrades.cfg
+  - CommsTechlevels.cfg是patch
+  - PayloadLevels.cfg
+  - PFTechLevels.cfg包含patch
+  - ProceduralAvionics.cfg包含patch
+  - RFTechLevels.cfg包含patch
+  - RP0TechTree.cfg包含patch
+  - TechFacilityUpgrades.cfg
+  - TREE-Engines.cfg是部件浏览器生成的
+  - TREE-Parts.cfg是部件浏览器生成的
+- ToolingDefinitions.cfg
+
 ## 航空航天常用知识
 
 ### 火箭
