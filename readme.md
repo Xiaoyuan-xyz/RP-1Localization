@@ -44,15 +44,11 @@
 RP-1
 - Parts
 - Science
-- Strategies
-  - Leaders中全部
 - Tooling
   - SSPX.cfg
 - Tree
-  - AirlaunchTechlevels.cfg
   - CockpitUpgrades.cfg
   - CommsTechlevels.cfg是patch
-
   - PFTechLevels.cfg包含patch
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的
