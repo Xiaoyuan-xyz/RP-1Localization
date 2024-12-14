@@ -55,7 +55,6 @@ RP-1
   - PFTechLevels.cfg包含patch
   - ProceduralAvionics.cfg包含patch
   - RFTechLevels.cfg包含patch
-  - RP0TechTree.cfg包含patch
   - TechFacilityUpgrades.cfg
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的
