@@ -52,10 +52,8 @@ RP-1
   - AirlaunchTechlevels.cfg
   - CockpitUpgrades.cfg
   - CommsTechlevels.cfg是patch
-  - PayloadLevels.cfg
+
   - PFTechLevels.cfg包含patch
-  - RFTechLevels.cfg包含patch
-  - TechFacilityUpgrades.cfg
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的
 - ToolingDefinitions.cfg
