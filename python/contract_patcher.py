@@ -66,14 +66,14 @@ def modify_dict(d, modifier, name):
             if isinstance(value, (dict, list)):
                 ret_dicts = modify_dict(value, modifier, name + "_" + d_name)
                 for ret_dict in ret_dicts:
-                    ret_dict_name = ret_dict["name"]
-                    ret_dict.pop("name")
+                    ret_dict_name = ret_dict["name"] if "name" in ret_dict else ""
+                    # ret_dict.pop("name")
                     # 新字典赋值
                     modified_dict[
                         "@"
                         + key
                         + f"[{ret_dict_name}]"
-                        + ("" if key == "CONTRACT_TYPE" else "")
+                        + ("" if key == "KCTTAGS" else "")
                     ] = ret_dict
             else:
                 new_key, new_value = modifier(key, value, name + "_" + d_name)
@@ -98,6 +98,10 @@ def modify_dict_key(key: str, value: str, name: str):
         "displayName",
         "requirementsPrettyText",
         "objectivesPrettyText",
+        "desc",
+        "headName",
+        "headline",
+        "article",
     ]:
         loc_name = "#" + name + "_" + key
         loc_dic[loc_name] = "暂未翻译 // " + value

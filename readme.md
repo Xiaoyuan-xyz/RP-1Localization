@@ -42,15 +42,9 @@
 
 RP-1
 - Parts
-- Scenarios
-  - 1957Start.cfg
 - Science
-- SMCData
-  - CostModifiers.cfg
 - Strategies
   - Leaders中全部
-  - Departments.cfg
-  - Milestones.cfg
 - Tooling
   - SSPX.cfg
 - Tree
