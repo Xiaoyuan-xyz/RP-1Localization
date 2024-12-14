@@ -34,7 +34,8 @@
 
 - tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料罐，然后Service Module那个单独翻译成储罐）
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
-- procedural （K君建议：自定义）
+- Avionics 航空电子设备 航电（设备）
+- procedura 可定制 模块化（K君建议：自定义）
 
 - mount plate
 
@@ -42,27 +43,13 @@
 
 RP-1
 - Parts
-- Scenarios
-  - 1957Start.cfg
 - Science
-- SMCData
-  - CostModifiers.cfg
-- Strategies
-  - Leaders中全部
-  - Departments.cfg
-  - Milestones.cfg
 - Tooling
   - SSPX.cfg
 - Tree
-  - AirlaunchTechlevels.cfg
   - CockpitUpgrades.cfg
   - CommsTechlevels.cfg是patch
-  - PayloadLevels.cfg
   - PFTechLevels.cfg包含patch
-  - ProceduralAvionics.cfg包含patch
-  - RFTechLevels.cfg包含patch
-  - RP0TechTree.cfg包含patch
-  - TechFacilityUpgrades.cfg
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的
 - ToolingDefinitions.cfg
