@@ -4,6 +4,7 @@ global loc_dic, loc_dic_en
 def cfg_to_dict(cfg_text):
     # 字符串去注释
     lines = cfg_text.splitlines()
+    lines = [line for line in lines if not ('{' in line and '}' in line)]
     lines = [line.strip() for line in lines]
     lines = [line.split("//")[0] for line in lines]
     lines = [line.strip() for line in lines]
@@ -62,17 +63,24 @@ def modify_dict(d, modifier, name):
         modified_dict = {}
         for key, value in d.items():
             # 修改键和值
-            d_name = d["name"] if "name" in d else "unnamed"
+            d_name = d["name"] if "name" in d else d["id"] if "id" in d else "unnamed"
+            
             if isinstance(value, (dict, list)):
                 ret_dicts = modify_dict(value, modifier, name + "_" + d_name)
                 for ret_dict in ret_dicts:
-                    ret_dict_name = ret_dict["name"] if "name" in ret_dict else ""
+                    if "name" in ret_dict:
+                        ret_dict_name = ret_dict["name"]
+                    elif "id" in ret_dict:
+                        ret_dict_name = ret_dict["id"]
+                    else:
+                        ret_dict_name = ""
+                    ret_dict_name_fliter = f"[{ret_dict_name}]" if "name" in ret_dict else f":HAS[#id[{ret_dict_name}]]" if "id" in ret_dict else ""
                     # ret_dict.pop("name")
                     # 新字典赋值
                     modified_dict[
                         "@"
                         + key
-                        + f"[{ret_dict_name}]"
+                        + ret_dict_name_fliter
                         + ("" if key == "KCTTAGS" else "")
                     ] = ret_dict
             else:
@@ -88,6 +96,7 @@ def modify_dict(d, modifier, name):
 
 
 def modify_dict_key(key: str, value: str, name: str):
+    key = key.replace("@", "")
     if key in [
         "title",
         "description",
@@ -102,12 +111,14 @@ def modify_dict_key(key: str, value: str, name: str):
         "headName",
         "headline",
         "article",
+        "dispName",
+        "basicInfo",
     ]:
         loc_name = "#" + name + "_" + key
         loc_dic[loc_name] = "暂未翻译 // " + value
         loc_dic_en[loc_name] = value
         return "@" + key, loc_name + " // " + value
-    if key == "name":
+    if key == "name" or key == 'id':
         return key, value.replace(' ', '?') # name中不能有空格
     return None, None
 
