@@ -43,9 +43,15 @@
 
 ## 接下来打算汉化的页面
 
+ProceduralParts
+- Parts
+- 目录下的其他文件
 RP-1
 - Parts
 - Science
+  - Result下文件
+  - Experiments下文件
+  - Configure.cfg
 - Tooling
   - SSPX.cfg
 - Tree
