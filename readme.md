@@ -33,7 +33,9 @@
 - Turbofan Engine 涡轮风扇发动机（涡扇发动机） bypass ratio 涵道比
 
 - tank 油箱 燃料罐 储罐 罐（这个该怎么翻译！）（K君推荐：燃料罐，然后Service Module那个单独翻译成储罐）
+- Balloon 气球 气囊
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
+- Fuselage 机身 Al 铝（制） stringer 桁架 Refined 精炼 改良 精致 精制 stringer 加（强）筋 Gridded 网格 Stir-Welded 搅拌焊接
 - Avionics 航空电子设备 航电（设备）
 - procedura 可定制 模块化（K君建议：自定义）
 - Tooling 构建产线 开发生产工艺 开模（具）
@@ -47,10 +49,9 @@ RP-1
 - Tooling
   - SSPX.cfg
 - Tree
-  - PFTechLevels.cfg包含patch
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的
-- ToolingDefinitions.cfg
+
 
 ## 航空航天常用知识
 
