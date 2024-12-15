@@ -47,7 +47,6 @@ RP-1
 - Tooling
   - SSPX.cfg
 - Tree
-  - CommsTechlevels.cfg是patch
   - PFTechLevels.cfg包含patch
   - TREE-Engines.cfg是部件浏览器生成的
   - TREE-Parts.cfg是部件浏览器生成的

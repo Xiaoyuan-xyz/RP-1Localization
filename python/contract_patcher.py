@@ -114,7 +114,7 @@ def modify_dict_key(key: str, value: str, name: str):
         "dispName",
         "basicInfo",
         "effectTitle",
-        "effectDescription"
+        "effectDescription",
     ]:
         loc_name = "#" + name + "_" + key
         loc_dic[loc_name] = "暂未翻译 // " + value
