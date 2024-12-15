@@ -36,7 +36,7 @@
 - isogrid orthogrid gridded stringer （K君建议：三角绗架，正交绗架，绗架结构？，纵梁）
 - Avionics 航空电子设备 航电（设备）
 - procedura 可定制 模块化（K君建议：自定义）
-
+- Tooling 构建产线 开发生产工艺 开模（具）
 - mount plate
 
 ## 接下来打算汉化的页面
@@ -47,7 +47,6 @@ RP-1
 - Tooling
   - SSPX.cfg
 - Tree
-  - CockpitUpgrades.cfg
   - CommsTechlevels.cfg是patch
   - PFTechLevels.cfg包含patch
   - TREE-Engines.cfg是部件浏览器生成的

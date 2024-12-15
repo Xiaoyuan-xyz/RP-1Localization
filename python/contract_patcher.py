@@ -25,7 +25,7 @@ def cfg_to_dict(cfg_text):
             curs.append(curs[-1][line][-1])
             continue
         if "=" in line:
-            # 有等号 键值对
+            # 有等号 键值对 没有考虑^=的情形
             key, value = line.split("=", 1)
             curs[-1][key.strip()] = value.strip()
         if "}" in next_line:
